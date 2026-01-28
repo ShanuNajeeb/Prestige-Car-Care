@@ -165,7 +165,6 @@ const App: React.FC = () => {
               </h2>
 
               <div className="space-y-4 mb-16 max-w-xl">
-                {/* Saloons Card */}
                 <div className="bg-[#0f0f11] p-6 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-[#151518] transition-all">
                   <div>
                     <h4 className="font-black text-[13px] uppercase tracking-widest text-zinc-100 mb-1">SALOONS</h4>
@@ -174,7 +173,6 @@ const App: React.FC = () => {
                   <div className="text-red-600 font-black text-2xl tracking-tighter">AED 2,900</div>
                 </div>
 
-                {/* SUVs Card */}
                 <div className="bg-[#0f0f11] p-6 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-[#151518] transition-all">
                   <div>
                     <h4 className="font-black text-[13px] uppercase tracking-widest text-zinc-100 mb-1">SUVS</h4>
@@ -183,7 +181,6 @@ const App: React.FC = () => {
                   <div className="text-red-600 font-black text-2xl tracking-tighter">AED 3,900</div>
                 </div>
 
-                {/* 4x4 Card */}
                 <div className="bg-[#0f0f11] p-6 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-[#151518] transition-all">
                   <div>
                     <h4 className="font-black text-[13px] uppercase tracking-widest text-zinc-100 mb-1">4X4 VEHICLES</h4>
@@ -204,8 +201,6 @@ const App: React.FC = () => {
 
             {/* Right Content - Visual Samples */}
             <div className="flex-1 relative w-full h-[600px] hidden md:flex items-center justify-center reveal" style={{ transitionDelay: '0.2s' }}>
-              
-              {/* Sample 01 - Metallic Crimson */}
               <div className="absolute top-0 left-0 w-[280px] h-[400px] bg-[#0d0d0f] rounded-[2.5rem] p-10 border border-white/5 shadow-[0_40px_80px_rgba(0,0,0,0.8)] flex flex-col items-center justify-between transform -rotate-6 z-10">
                 <div className="w-16 h-44 bg-[#c22121] rounded-2xl shadow-[0_0_40px_rgba(194,33,33,0.5)] border border-white/10"></div>
                 <div className="text-center">
@@ -214,7 +209,6 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* Sample 02 - Arctic Silver */}
               <div className="absolute top-20 right-0 w-[280px] h-[400px] bg-[#0d0d0f] rounded-[2.5rem] p-10 border border-white/5 shadow-[0_40px_80px_rgba(0,0,0,0.8)] flex flex-col items-center justify-between transform rotate-3 z-0">
                 <div className="w-16 h-44 bg-[#444446] rounded-2xl shadow-[0_0_30px_rgba(68,68,70,0.3)] border border-white/10"></div>
                 <div className="text-center">
@@ -222,7 +216,6 @@ const App: React.FC = () => {
                   <p className="text-[8px] text-zinc-600 font-black tracking-widest">PCC-REF 02</p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

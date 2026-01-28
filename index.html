@@ -66,7 +66,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Artistic Elements from Screenshot */
         .hero-title-solid {
             font-size: clamp(4rem, 12vw, 10rem);
             font-weight: 900;
@@ -101,18 +100,9 @@
             display: inline-block;
         }
 
-        /* Testimonial Marquee */
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
-        }
-        .marquee-wrapper {
-            display: flex;
-            width: fit-content;
-            animation: marquee 35s linear infinite;
-        }
-        .marquee-wrapper:hover {
-            animation-play-state: paused;
         }
 
         .image-zoom-container img {
@@ -147,12 +137,12 @@
     <script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@0.21.0",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react/dom": "https://esm.sh/react-dom@^19.2.4",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.4/client",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react/": "https://esm.sh/react@19.0.0/",
+    "react-dom/": "https://esm.sh/react-dom@19.0.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
   }
 }
 </script>
@@ -160,7 +150,6 @@
 <body class="antialiased">
     <div id="root"></div>
 
-    <!-- Static Navigation for SEO and fast paint -->
     <nav class="glass-nav fixed top-0 w-full z-[100] px-10 py-5 flex justify-between items-center transition-all duration-500" id="mainNav">
         <div class="flex items-center space-x-3">
             <div class="w-12 h-12 bg-red-800 rounded-xl flex items-center justify-center font-black italic text-2xl shadow-xl glow-red border border-red-600/30">P</div>
@@ -181,7 +170,6 @@
         <button class="bg-white text-black px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-zinc-200 transition-all shadow-xl">Book Appointment</button>
     </nav>
 
-    <!-- Logic Entry -->
     <script type="module" src="./index.tsx"></script>
 </body>
 </html>
