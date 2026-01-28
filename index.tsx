@@ -1,4 +1,6 @@
-import { GoogleGenAI } from "@google/genai";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
 
 // 1. GSAP Animation Engine
 function initAnimations() {
@@ -85,80 +87,18 @@ function initAnimations() {
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
 
-// 2. Gemini AI Master Tech Diagnostic
-function initDiagnosticChat() {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
-  
-  const openBtn = document.getElementById('open-chat');
-  const closeBtn = document.getElementById('close-chat');
-  const chatPanel = document.getElementById('chat-panel');
-  const sendBtn = document.getElementById('send-chat');
-  const chatInput = document.getElementById('chat-input') as HTMLInputElement;
-  const chatHistory = document.getElementById('chat-history');
-
-  if (!openBtn || !closeBtn || !chatPanel || !sendBtn || !chatInput || !chatHistory) return;
-
-  const toggleChat = (force?: boolean) => {
-    chatPanel.classList.toggle('active', force);
-    if (chatPanel.classList.contains('active')) {
-      chatInput.focus();
-    }
-  };
-
-  openBtn.addEventListener('click', () => toggleChat(true));
-  closeBtn.addEventListener('click', () => toggleChat(false));
-
-  const appendMessage = (role: 'user' | 'ai', text: string) => {
-    const bubble = document.createElement('div');
-    bubble.className = `chat-bubble ${role === 'user' ? 'user-bubble' : 'ai-bubble'}`;
-    bubble.textContent = text;
-    chatHistory.appendChild(bubble);
-    chatHistory.scrollTop = chatHistory.scrollHeight;
-    return bubble;
-  };
-
-  const handleSend = async () => {
-    const query = chatInput.value.trim();
-    if (!query) return;
-
-    chatInput.value = '';
-    appendMessage('user', query);
-
-    const loadingBubble = appendMessage('ai', 'Master technician is analyzing symptoms...');
-    loadingBubble.classList.add('animate-pulse');
-
-    try {
-      const result = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `You are the Master Technician at Prestige Car Care LLC, a premium workshop in Umm Ramool, Dubai. 
-        Client Issue: "${query}". 
-        
-        Guidelines:
-        - Provide a professional, concise, and helpful technical diagnosis.
-        - Mention our expertise in mechanical repair and German quality oven painting if relevant.
-        - Remind them of our "Prestige Standard": precision, cleanliness, and expert care.
-        - Strongly recommend an inspection at our Warehouse #2 facility in Umm Ramool.
-        - Limit to 75 words maximum.
-        - Do not use markdown bold/italic, just plain text with line breaks for readability.`,
-      });
-
-      loadingBubble.classList.remove('animate-pulse');
-      loadingBubble.textContent = result.text || "I'm having trouble connecting to our diagnostic database. Please call us at +971 56 224 4402.";
-    } catch (error) {
-      console.error("AI Error:", error);
-      loadingBubble.textContent = "Error connecting to workshop database. Please contact Mohannad directly at 056 224 4402.";
-      loadingBubble.classList.remove('animate-pulse');
-    }
-  };
-
-  sendBtn.addEventListener('click', handleSend);
-  chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') handleSend();
-  });
-}
-
 // Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
-  initDiagnosticChat();
 });
+
+// React Mounting
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  const root = createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { SERVICES, TESTIMONIALS, PAINT_PRICES } from './constants.tsx';
-import DiagnosticChat from './components/DiagnosticChat.tsx';
 import Logo from './components/Logo.tsx';
 
 const App: React.FC = () => {
@@ -90,7 +89,6 @@ const App: React.FC = () => {
       {/* Services Section */}
       <section id="services" className="py-32 px-6 bg-black">
         <div className="container mx-auto">
-          {/* Section Header from Screenshot */}
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 reveal">
             <div className="max-w-3xl">
               <span className="text-red-600 font-bold text-[10px] uppercase tracking-[0.6em] block mb-4">WORKSHOP DIRECTORY</span>
@@ -105,7 +103,6 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Service Grid from Screenshot */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {SERVICES.slice(0, 4).map((s, i) => (
               <div key={s.id} className="reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-zinc-900/10 flex flex-col hover:border-red-600/50 transition-all duration-500" style={{ transitionDelay: `${i*0.05}s` }}>
@@ -129,7 +126,6 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          {/* Secondary Grid for other services */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
             {SERVICES.slice(4).map((s, i) => (
                <div key={s.id} className="reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-zinc-900/10 flex flex-col hover:border-red-600/50 transition-all duration-500" style={{ transitionDelay: `${(i+4)*0.05}s` }}>
@@ -153,42 +149,110 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Paint Workshop Section */}
-      <section id="painting" className="py-32 bg-zinc-950 relative overflow-hidden border-y border-white/5">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-20">
-            <div className="lg:w-1/2 reveal">
-              <span className="text-red-600 font-black text-[10px] uppercase tracking-[0.7em] mb-6 block">PROFESSIONAL OVEN LAB</span>
-              <h2 className="text-5xl md:text-8xl font-black mb-10 leading-[0.85] tracking-tighter uppercase italic">OVEN-BAKED <br /> PERFECTION</h2>
-              <p className="text-zinc-500 text-sm mb-12 leading-relaxed max-w-md font-medium italic">
-                Best car painting services, high-quality materials, and competitive Dubai pricing. Professional oven-baked painting with a high-gloss showroom finish.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-                {PAINT_PRICES.map((plan, i) => (
-                  <div key={i} className="p-7 rounded-2xl bg-zinc-900 border border-white/5 hover:border-red-600 transition-all group text-center shadow-lg">
-                    <p className="text-[10px] font-black uppercase text-zinc-500 mb-2">{plan.type}</p>
-                    <p className="text-2xl font-black text-white italic">{plan.price}</p>
-                    <p className="text-[8px] font-bold text-red-600 uppercase mt-2 tracking-widest">Starting From</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex gap-4">
-                 <button className="bg-red-700 hover:bg-red-600 px-10 py-5 rounded font-black text-[11px] tracking-[0.2em] uppercase transition-all shadow-2xl">Book Now</button>
-                 <a href="https://wa.me/971562244402" className="border border-white/10 px-10 py-5 rounded font-black text-[11px] tracking-[0.2em] uppercase transition-all flex items-center justify-center">WhatsApp Quote</a>
-              </div>
-            </div>
+      {/* Refined Paint Workshop Section from Screenshot */}
+      <section id="painting" className="py-32 px-6 bg-black relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl">
+          <div className="flex flex-col lg:flex-row gap-20 items-start">
             
-            <div className="lg:w-1/2 relative reveal" style={{ transitionDelay: '0.2s' }}>
-              <div className="aspect-[16/10] bg-zinc-900 rounded-[2rem] p-1 border border-white/5 overflow-hidden relative group shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1589412225873-51920803c407?auto=format&fit=crop&q=80" className="w-full h-full object-cover opacity-50 grayscale" alt="Painting Lab" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-6xl mb-4 group-hover:scale-110 transition-all duration-500">✨</div>
-                  <p className="text-[10px] font-black uppercase tracking-[1em] italic text-zinc-400">GERMAN QUALITY LAB</p>
+            {/* Left Content */}
+            <div className="flex-1 reveal">
+              <span className="text-red-600 font-bold text-[10px] uppercase tracking-[0.4em] mb-10 block">THE PAINT LABORATORY</span>
+              
+              <h2 className="text-5xl md:text-8xl font-black mb-16 leading-[0.85] tracking-tight uppercase">
+                <span className="text-white italic block mb-2">BEST OVEN</span>
+                <span className="text-[#ff7f5c] block mb-2">PAINTING</span>
+                <span className="text-[#ff7f5c]">QUALITY</span>
+              </h2>
+
+              <div className="space-y-4 mb-16 max-w-xl">
+                {/* Saloons Card */}
+                <div className="bg-[#0f0f11] p-6 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-[#151518] transition-all">
+                  <div>
+                    <h4 className="font-black text-[13px] uppercase tracking-widest text-zinc-100 mb-1">SALOONS</h4>
+                    <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">PREMIUM GERMAN OVEN BAKE</p>
+                  </div>
+                  <div className="text-red-600 font-black text-2xl tracking-tighter">AED 2,900</div>
+                </div>
+
+                {/* SUVs Card */}
+                <div className="bg-[#0f0f11] p-6 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-[#151518] transition-all">
+                  <div>
+                    <h4 className="font-black text-[13px] uppercase tracking-widest text-zinc-100 mb-1">SUVS</h4>
+                    <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">HIGH-RESISTANCE FINISH</p>
+                  </div>
+                  <div className="text-red-600 font-black text-2xl tracking-tighter">AED 3,900</div>
+                </div>
+
+                {/* 4x4 Card */}
+                <div className="bg-[#0f0f11] p-6 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-[#151518] transition-all">
+                  <div>
+                    <h4 className="font-black text-[13px] uppercase tracking-widest text-zinc-100 mb-1">4X4 VEHICLES</h4>
+                    <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">COMPLETE OFF-ROAD ARMOR</p>
+                  </div>
+                  <div className="text-red-600 font-black text-2xl tracking-tighter">AED 5,900</div>
                 </div>
               </div>
+
+              <p className="text-zinc-500 text-[11px] leading-relaxed max-w-md font-medium mb-12 uppercase tracking-wide">
+                Our specialized paint lab uses factory-grade Italian ovens and premium paint matching technology to ensure your vehicle returns with a showroom glow.
+              </p>
+
+              <a href="https://wa.me/971562244402" className="bg-[#c22121] hover:bg-red-700 text-white px-12 py-5 rounded-md font-black text-[10px] tracking-[0.2em] uppercase transition-all shadow-2xl inline-block">
+                WHATSAPP INQUIRY
+              </a>
             </div>
+
+            {/* Right Content - Visual Samples */}
+            <div className="flex-1 relative w-full h-[600px] hidden md:flex items-center justify-center reveal" style={{ transitionDelay: '0.2s' }}>
+              
+              {/* Sample 01 - Metallic Crimson */}
+              <div className="absolute top-0 left-0 w-[280px] h-[400px] bg-[#0d0d0f] rounded-[2.5rem] p-10 border border-white/5 shadow-[0_40px_80px_rgba(0,0,0,0.8)] flex flex-col items-center justify-between transform -rotate-6 z-10">
+                <div className="w-16 h-44 bg-[#c22121] rounded-2xl shadow-[0_0_40px_rgba(194,33,33,0.5)] border border-white/10"></div>
+                <div className="text-center">
+                  <p className="font-black text-[10px] tracking-[0.4em] uppercase text-zinc-400 mb-2">METALLIC CRIMSON</p>
+                  <p className="text-[8px] text-zinc-600 font-black tracking-widest">PCC-REF 01</p>
+                </div>
+              </div>
+
+              {/* Sample 02 - Arctic Silver */}
+              <div className="absolute top-20 right-0 w-[280px] h-[400px] bg-[#0d0d0f] rounded-[2.5rem] p-10 border border-white/5 shadow-[0_40px_80px_rgba(0,0,0,0.8)] flex flex-col items-center justify-between transform rotate-3 z-0">
+                <div className="w-16 h-44 bg-[#444446] rounded-2xl shadow-[0_0_30px_rgba(68,68,70,0.3)] border border-white/10"></div>
+                <div className="text-center">
+                  <p className="font-black text-[10px] tracking-[0.4em] uppercase text-zinc-400 mb-2">ARCTIC SILVER</p>
+                  <p className="text-[8px] text-zinc-600 font-black tracking-widest">PCC-REF 02</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bento Standard Section */}
+      <section id="about" className="py-32 px-6 bg-black">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+          <div className="flex-1 reveal">
+            <span className="text-red-600 font-black text-[10px] uppercase tracking-[0.5em] block mb-4">The Prestige Standard</span>
+            <h2 className="text-4xl md:text-6xl font-black italic uppercase leading-tight mb-8">Expert Technical <br /> Leadership</h2>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-medium">
+              Led by specialist technicians like <span className="text-white italic">Mohannad</span>, known throughout Dubai for meticulous attention to detail and personal care for every client.
+            </p>
+            <p className="text-zinc-500 text-xs leading-relaxed mb-10 italic">
+              Our mission is simple: To provide "Amazing Work" where every vehicle is treated as if it were our own. We operate in a clean, clinical garage environment in Umm Ramool.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="p-8 bg-zinc-900/50 rounded-3xl border border-white/5">
+                <h4 className="text-white font-black uppercase text-[10px] tracking-widest mb-3 italic">Clinical Facility</h4>
+                <p className="text-zinc-500 text-[10px] leading-relaxed italic">Clean, organized, and high hygiene standards for every luxury make.</p>
+              </div>
+              <div className="p-8 bg-zinc-900/50 rounded-3xl border border-white/5">
+                <h4 className="text-white font-black uppercase text-[10px] tracking-widest mb-3 italic">Safety First</h4>
+                <p className="text-zinc-500 text-[10px] leading-relaxed italic">Rigorous safety standards and professional accountability on every repair.</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 relative reveal" style={{ transitionDelay: '0.2s' }}>
+            <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?auto=format&fit=crop&q=80" className="rounded-[3rem] w-full h-[500px] object-cover grayscale opacity-50 border border-white/10" alt="Master Technician at Work" />
           </div>
         </div>
       </section>
@@ -274,8 +338,6 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
-
-      <DiagnosticChat />
     </div>
   );
 };
