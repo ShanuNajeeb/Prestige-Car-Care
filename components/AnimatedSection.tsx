@@ -1,0 +1,1 @@
+// Component removed to simplify architecture and prevent errors
